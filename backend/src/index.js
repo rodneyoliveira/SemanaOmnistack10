@@ -1,6 +1,7 @@
 const express = require("express");
 
 const mongoose = require("mongoose");
+const cors = require("cors");
 const routes = require("./routes");
 
 const app = express();
@@ -13,8 +14,9 @@ mongoose.connect(
   }
 );
 
-// config para o body entender o formato json
+app.use(cors());
 
+// config para o body entender o formato json
 app.use(express.json());
 app.use(routes);
 
